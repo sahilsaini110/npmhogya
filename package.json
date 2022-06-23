@@ -1,5 +1,6 @@
 {
 	"author": "sahil",
+	"description": "my npm course",
 	"name": "fcc-learn-npm-package-json",
 	"dependencies": {
 		"express": "^4.14.0"
