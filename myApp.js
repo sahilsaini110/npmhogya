@@ -33,6 +33,14 @@ app.get('/now', (req, res, next)=>{
 });
 
 
+// route parameters 
+app.get("/:word/echo", (req, res) =>{
+    res.json(
+        {"echo": req.params.word}
+    );
+});
+
+
 // app.get('/json', (req, res)=>{
 //     res.json({"message": "Hello json"});
 // });
