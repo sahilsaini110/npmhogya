@@ -5,12 +5,11 @@ let bGround = require('fcc-express-bground');
 require('dotenv').config();
 
 
-
+// middleware to work on all route create it on top
 app.use(function(req, res, next){
     console.log(req.method+" "+req.path+" "+"-"+" "+req.ip)
     next();
 });
-
 
 
 // use to link static files such as css
@@ -22,7 +21,16 @@ app.get("/", (req,res)=>{
     res.sendFile(__dirname + '/views/index.html');
 });
 
+// chained middleware 
 
+app.get('/now', (req, res, next)=>{
+    req.time = new Date().toString();
+    next();
+}, (req, res)=>{
+    res.json(
+        {"time" : req.time}
+    );
+});
 
 
 // app.get('/json', (req, res)=>{
