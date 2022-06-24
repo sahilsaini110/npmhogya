@@ -7,7 +7,8 @@ let bGround = require('fcc-express-bground');
 
 
 app.get("/", (req,res)=>{
-    res.send('Hello Express');
+    // res.send('Hello Express');
+    res.sendFile( path.join(__dirname + 'views\index.html'));
 });
 
 bGround.log("Hello World");
