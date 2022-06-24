@@ -40,6 +40,14 @@ app.get("/:word/echo", (req, res) =>{
     );
 });
 
+// query parameters The query string is delimited by a question mark (?), and includes field=value couples. Each couple is separated by an ampersand (&).
+app.get("/name", (req, res) =>{
+    console.log(req.query)
+    res.json(
+        {name: req.query.first + " " + req.query.last}   
+    );
+});
+
 
 // app.get('/json', (req, res)=>{
 //     res.json({"message": "Hello json"});
