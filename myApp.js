@@ -6,9 +6,9 @@ let bGround = require('fcc-express-bground');
 
 
 
-// app.get("/", ()=>{
-//     bGround.log("Hello Express")
-// })
+app.get("/", (req,res)=>{
+    res.send('Hello Express');
+});
 
 bGround.log("Hello World");
 console.log("Hello World");
