@@ -1,7 +1,8 @@
 let express = require('express');
 let app = express();
 let bGround = require('fcc-express-bground');
-
+var bodyParser = require('body-parser');
+const { application } = require('express');
 require('dotenv').config();
 
 
@@ -10,6 +11,12 @@ app.use(function(req, res, next){
     console.log(req.method+" "+req.path+" "+"-"+" "+req.ip)
     next();
 });
+
+
+// bodyParser Middleware(parse application/x-www-form-urlencoded)
+app.use(bodyParser.urlencoded({extended: false}))
+//  parse application/json 
+app.use(bodyParser.json())
 
 
 // use to link static files such as css
@@ -39,6 +46,7 @@ app.get("/:word/echo", (req, res) =>{
         {echo: req.params.word}
     );
 });
+ 
 
 // query parameters The query string is delimited by a question mark (?), and includes field=value couples. Each couple is separated by an ampersand (&).
 app.get("/name", (req, res) =>{
@@ -47,6 +55,9 @@ app.get("/name", (req, res) =>{
         {name: req.query.first + " " + req.query.last}   
     );
 });
+
+
+// Use body-parser to Parse POST Requests 
 
 
 // app.get('/json', (req, res)=>{
