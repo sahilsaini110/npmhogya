@@ -79,6 +79,16 @@ app.get('/json', function(req, res) {
 });
    
 
+
+// get data from post request
+app.post("/name", (req, res) =>{
+    console.log(req.body)
+    res.json(
+        {name: req.body.first + " " + req.body.last}   
+    );
+});
+
+
 bGround.log("Hello World");
 console.log("Hello World");
 
