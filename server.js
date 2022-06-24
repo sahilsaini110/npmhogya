@@ -35,10 +35,10 @@
   //     });
   //   });
     
-  // app.route('/')
-  //     .get(function(req, res) {
-  //       res.sendFile(process.cwd() + '/views/index.html');
-  //     })
+  app.route('/')
+      .get(function(req, res) {
+        res.sendFile(process.cwd() + '/views/index.html');
+      })
   
   // // Respond not found to all the wrong routes
   // app.use(function(req, res, next){
@@ -57,6 +57,6 @@
 
   //Listen on port set in environment variable or default to 3000
   var port = process.env.PORT || 3000;
-  bGround.setupBackgroundApp(app, myApp, __dirname).listen(port, function(){
+  const listener = bGround.setupBackgroundApp(app, myApp, __dirname).listen(port, function(){
     bGround.log('Node is listening on port '+ port + '...')
   });
